@@ -1,0 +1,85 @@
+<h3 class="header-no-margin">仓库资料</h3>
+<div class="col-xs-8 col-md-8 offset-2 text-center">
+    <form class="form-horizontal" #warehouseForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group row">
+            <label class="col-md-3 offset-1 control-label">仓库名称：</label>
+            <div class="col-md-4">
+                <input type="text" class="form-control" placeholder="2-50个字符, 必填" #warehouseName="ngModel" [(ngModel)]="warehouse.warehouseName" name="warehouseName" [ngClass]="{'form-control-plaintext': !canEdit}" required minlength="2" maxlength="50" />
+                <div *ngIf="warehouseName.invalid && (warehouseName.dirty || warehouseName.touched)" class="text-danger">
+                    <div *ngIf="warehouseName.errors['required']">
+                        名称不可为空
+                    </div>
+                    <div *ngIf="warehouseName.errors['minlength']">
+                        名称长度不能小于2个字符
+                    </div>
+                    <div *ngIf="warehouseName.errors['maxlength']">
+                        名称长度不能大于50个字符
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 offset-1 control-label">管理员：</label>
+            <div class="col-md-4">
+                <input type="text" class="form-control" placeholder="2-50个字符, 必填" #managerName="ngModel" [(ngModel)]="warehouse.managerName" name="managerName" [ngClass]="{'form-control-plaintext': !canEdit}" required minlength="2" maxlength="50" />
+                <div *ngIf="managerName.invalid && (managerName.dirty || managerName.touched)" class="text-danger">
+                    <div *ngIf="managerName.errors['required']">
+                        名称不可为空
+                    </div>
+                    <div *ngIf="managerName.errors['minlength']">
+                        名称长度不能小于2个字符
+                    </div>
+                    <div *ngIf="managerName.errors['maxlength']">
+                        名称长度不能大于50个字符
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 offset-1 control-label">省份：</label>
+            <div class="col-md-4">
+                <input type="text" class="form-control" placeholder="2-20个字符, 必填" #province="ngModel" [(ngModel)]="warehouse.province" name="province" [ngClass]="{'form-control-plaintext': !canEdit}" required minlength="2" maxlength="20" />
+                <div *ngIf="province.invalid && (province.dirty || province.touched)" class="text-danger">
+                    <div *ngIf="province.errors['required']">
+                        省份不可为空
+                    </div>
+                    <div *ngIf="province.errors['minlength']">
+                        省份长度不可小于2个字符
+                    </div>
+                    <div *ngIf="province.errors['maxlength']">
+                        省份长度不可大于20个字符
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 offset-1 control-label">地址：</label>
+            <div class="col-md-4">
+                <input type="text" class="form-control" placeholder="2-100个字符, 必填" #address="ngModel" [(ngModel)]="warehouse.address" name="address" [ngClass]="{'form-control-plaintext': !canEdit}" required minlength="2" maxlength="100" />
+                <div *ngIf="address.invalid && (address.dirty || address.touched)" class="text-danger">
+                    <div *ngIf="address.errors['required']">
+                        地址不可为空
+                    </div>
+                    <div *ngIf="address.errors['minlength']">
+                        地址长度不可小于2个字符
+                    </div>
+                    <div *ngIf="address.errors['maxlength']">
+                        地址长度不可大于100个字符
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-xs-3 col-md-3 offset-1 control-label">备注：</label>
+            <div class="col-xs-4 col-md-4">
+                <input type="text" class="form-control" placeholder="">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="offset-4 col-xs-4 col-md-4">
+                <button type="submit" class="btn btn-success" [disabled]="!canEdit && warehouseForm.invalid">保存</button>
+                <button type="button" class="btn btn-danger" (click)="backToTable()">返回</button>
+            </div>
+        </div>
+    </form>
+</div>

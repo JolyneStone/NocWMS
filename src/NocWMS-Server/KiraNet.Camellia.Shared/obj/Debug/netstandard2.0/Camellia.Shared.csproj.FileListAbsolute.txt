@@ -1,0 +1,12 @@
+C:\Users\99752\Desktop\KiraNet.Camellia\Server\Camellia.Shared\bin\Debug\netstandard2.0\Camellia.Shared.deps.json
+C:\Users\99752\Desktop\KiraNet.Camellia\Server\Camellia.Shared\bin\Debug\netstandard2.0\Camellia.Shared.dll
+C:\Users\99752\Desktop\KiraNet.Camellia\Server\Camellia.Shared\obj\Debug\netstandard2.0\Camellia.Shared.csprojResolveAssemblyReference.cache
+C:\Users\99752\Desktop\KiraNet.Camellia\Server\Camellia.Shared\obj\Debug\netstandard2.0\Camellia.Shared.csproj.CoreCompileInputs.cache
+C:\Users\99752\Desktop\KiraNet.Camellia\Server\Camellia.Shared\obj\Debug\netstandard2.0\Camellia.Shared.AssemblyInfoInputs.cache
+C:\Users\99752\Desktop\KiraNet.Camellia\Server\Camellia.Shared\obj\Debug\netstandard2.0\Camellia.Shared.AssemblyInfo.cs
+C:\Users\99752\Desktop\KiraNet.Camellia\Server\Camellia.Shared\bin\Debug\netstandard2.0\Camellia.Shared.pdb
+C:\Users\99752\Desktop\KiraNet.Camellia\Server\Camellia.Shared\obj\Debug\netstandard2.0\Camellia.Shared.dll
+C:\Users\99752\Desktop\KiraNet.Camellia\Server\Camellia.Shared\obj\Debug\netstandard2.0\Camellia.Shared.pdb
+C:\Users\99752\Desktop\KiraNet.Camellia\Server\Camellia.Shared\bin\Debug\netstandard2.0\settings.json
+C:\Users\99752\Desktop\KiraNet.Camellia\Server\Camellia.Shared\bin\Debug\netstandard2.0\Camellia.Shared.runtimeconfig.json
+C:\Users\99752\Desktop\KiraNet.Camellia\Server\Camellia.Shared\bin\Debug\netstandard2.0\Camellia.Shared.runtimeconfig.dev.json

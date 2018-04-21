@@ -1,0 +1,3 @@
+src/NocWMS-Client/node_modules/
+src/NocWMS-Server/**/wwwroot/lib
+src/NocWMS-Server/**/bin/

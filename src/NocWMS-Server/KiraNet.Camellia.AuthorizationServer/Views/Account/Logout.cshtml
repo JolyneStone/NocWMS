@@ -1,0 +1,24 @@
+﻿@using KiraNet.Camellia.AuthorizationServer.Quickstart.Account
+@model KiraNet.Camellia.AuthorizationServer.Quickstart.Account.LogoutViewModel
+
+<div class="logout-page">
+    <div class="page-header">
+        <h1>Log out</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <p>
+                Do you want to log out of the authorization system?
+            </p>
+            <form asp-action="Logout">
+                <input type="hidden" name="logoutId" value="@Model.LogoutId"  />
+                <fieldset>
+                    <div class="form-group">
+                        <button class="btn btn-primary">Yes</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

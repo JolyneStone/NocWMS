@@ -1,0 +1,83 @@
+<div class="row">
+    <div class="col-xs-12 col-md-12">
+        <form class="form-inline">
+            <div class="row">
+                <div class="form-group col-xs-4 col-md-4">
+                    <label>入库单号：</label>
+                    <span class="form-control-static">{{outboundReceipt.id}}</span>
+                </div>
+                <div class="form-group col-xs-4 col-md-4">
+                    <label>运单号：</label>
+                    <span class="form-control-static">{{outboundReceipt.waybillNo}}</span>
+                </div>
+                <div class="form-group col-xs-4 col-md-4">
+                    <label>入库时间：</label>
+                    <span class="form-control-static">{{outboundReceipt.createTime}}</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-xs-4 col-md-4">
+                    <label>经手人：</label>
+                    <label class="form-control-static">{{outboundReceipt.handlerName}}</label>
+                </div>
+                <div class="form-group col-xs-4 col-md-4">
+                    <label>验收人：</label>
+                    <label class="form-control-static">{{outboundReceipt.acceptor}}</label>
+                </div>
+                <div class="form-group col-xs-4 col-md-4">
+                    <label>送货人：</label>
+                    <label class="form-control-static">{{outboundReceipt.deliveryman}}</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-xs-4 col-md-4">
+                    <label>客户：</label>
+                    <span class="form-control-static">{{outboundReceipt.customerName}}</span>
+                </div>
+                <div class="form-group col-xs-4 col-md-4">
+                    <label>仓库：</label>
+                    <span class="form-control-static">{{outboundReceipt.warehouseName}}</span>
+                </div>
+                <div class="form-group col-xs-4 col-md-4">
+                    <label>是否完成：</label>
+                    <select class="form-control" [(ngModel)]="outboundReceipt.isDone" (change)="onChange()" name="isDone">
+                        <option value="false">未完</option>
+                        <option value="true">完成</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+        <table class="table table-bordered detail-table">
+            <thead>
+                <tr>
+                    <th scope="col">产品</th>
+                    <th scope="col">规格</th>
+                    <th scope="col">型号</th>
+                    <th scope="col">数量</th>
+                    <th scope="col">单位</th>
+                    <th scope="col">单价</th>
+                    <th scope="col">库位</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of outboundReceipt.outboundReceiptItems">
+                    <td scope="row">{{item.productName}}</td>
+                    <td>{{item.productSpec}}</td>
+                    <td>{{item.productModel}}</td>
+                    <td>{{item.num}}</td>
+                    <td>{{item.productUnit}}</td>
+                    <td>{{item.productPrice}}</td>
+                    <td>{{item.storeCell}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <form class="form-inline">
+
+        </form>
+        <div class="form-col-xs-12 col-md-12 text-center">
+            <button type="button" class="btn btn-success" (click)="returnToTable()">返回</button>
+            <button type="button" class="btn btn-danger" (click)="printReceipt()">打印</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,106 @@
+<h3 class="header-no-margin">库存记录详情---iPhone X</h3>
+<ngb-tabset>
+    <ngb-tab title="库存曲线">
+        <ng-template ngbTabContent>
+            <div class="btn-group" role="group" aria-label="Default button group">
+                <button type="button" class="btn btn-light">周</button>
+                <button type="button" class="btn btn-light">月</button>
+                <button type="button" class="btn btn-light">季</button>
+                <button type="button" class="btn btn-light">年</button>
+            </div>
+            <div echarts [options]="options" class="nf-chart" (chartInit)="onChartInit($event)"></div>
+        </ng-template>
+    </ngb-tab>
+    <ngb-tab title="概要">
+        <ng-template ngbTabContent>
+            <form class="form-horizontal">
+                <div class="form-group row">
+                    <label class="col-md-1 offset-3 lable">仓库：</label>
+                    <div class="col-md-3">
+                        <span>{{inventory.warehouseName}}</span>
+                    </div>
+                    <label class="col-md-1 offset-1 lable">类别：</label>
+                    <div class="col-md-3">
+                        <span>{{inventory.categoryName}}</span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-1 offset-3 lable">产品名：</label>
+                    <div class="col-md-3">
+                        <span>{{inventory.productName}}</span>
+                    </div>
+                    <label class="col-md-1 offset-1 lable">价格：</label>
+                    <div class="col-md-3">
+                        <span>{{inventory.productPrice}}</span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-1 offset-3 lable">型号：</label>
+                    <div class="col-md-3">
+                        <span>{{inventory.productModel}}</span>
+                    </div>
+                    <label class="col-md-1 offset-1 lable">规格：</label>
+                    <div class="col-md-3">
+                        <span>{{inventory.productSpec}}</span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-1 offset-3 lable">账面库存：</label>
+                    <div class="col-md-3">
+                        <span>{{inventory.bookInventory}} {{inventory.productUnit}}</span>
+                    </div>
+                    <label class="col-md-1 offset-1 lable">实际库存：</label>
+                    <div class="col-md-3">
+                        <span>{{inventory.realInventory}} {{inventory.productUnit}}</span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-md-1 offset-3 lable">差异数：</label>
+                    <div class="col-md-3">
+                        <span>{{inventory.diffInventory}} {{inventory.productUnit}}</span>
+                    </div>
+                    <label class="col-md-1 offset-1 lable">库存合计：</label>
+                    <div class="col-md-3">
+                        <span>{{inventory.totalPrice}}</span>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <table class="table col-md-10 offset-1">
+                        <thead>
+                            <tr>
+                                <th scope="col">最近操作</th>
+                                <th scope="col">单号</th>
+                                <th scope="col">数量</th>
+                                <th scope="col">库位</th>
+                                <th scope="col">最近操作时间</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of inventory.inventoryCells">
+                                <td scope="row">
+                                    {{item.receiptType | receiptType}}
+                                </td>
+                                <td>
+                                    {{item.receiptId}}
+                                </td>
+                                <td>
+                                    {{item.num}}
+                                </td>
+                                <td>
+                                    {{item.cellName}}
+                                </td>
+                                <td>
+                                    {{item.updateTime}}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+        </ng-template>
+    </ngb-tab>
+</ngb-tabset>
+<div class="col-xs-12 col-md-12 text-center">
+    <button type="button" class="btn btn-success" (click)="backToList()">返回</button>
+    <button type="button" class="btn btn-danger" (click)="printBill()">打印</button>
+</div>

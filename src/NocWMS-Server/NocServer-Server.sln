@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2015
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KiraNet.Camellia.Infrastructure", "KiraNet.Camellia.Infrastructure\KiraNet.Camellia.Infrastructure.csproj", "{BCC82C59-1571-4AA3-BEF9-E2AF051CDB92}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KiraNet.Camellia.AuthorizationServer", "KiraNet.Camellia.AuthorizationServer\KiraNet.Camellia.AuthorizationServer.csproj", "{778A4FD7-09A1-4ED8-9CE5-21896CE60B96}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KiraNet.Camellia.Shared", "KiraNet.Camellia.Shared\KiraNet.Camellia.Shared.csproj", "{CAD4C6BB-C09A-4DFF-8525-FA1D2ADF9B4E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Server.ApiService", "Server.ApiService\Server.ApiService.csproj", "{022F7BFB-3F08-42A9-B163-57B4D536C4A3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BCC82C59-1571-4AA3-BEF9-E2AF051CDB92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCC82C59-1571-4AA3-BEF9-E2AF051CDB92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCC82C59-1571-4AA3-BEF9-E2AF051CDB92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCC82C59-1571-4AA3-BEF9-E2AF051CDB92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{778A4FD7-09A1-4ED8-9CE5-21896CE60B96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{778A4FD7-09A1-4ED8-9CE5-21896CE60B96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{778A4FD7-09A1-4ED8-9CE5-21896CE60B96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{778A4FD7-09A1-4ED8-9CE5-21896CE60B96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAD4C6BB-C09A-4DFF-8525-FA1D2ADF9B4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAD4C6BB-C09A-4DFF-8525-FA1D2ADF9B4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAD4C6BB-C09A-4DFF-8525-FA1D2ADF9B4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAD4C6BB-C09A-4DFF-8525-FA1D2ADF9B4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{022F7BFB-3F08-42A9-B163-57B4D536C4A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{022F7BFB-3F08-42A9-B163-57B4D536C4A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{022F7BFB-3F08-42A9-B163-57B4D536C4A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{022F7BFB-3F08-42A9-B163-57B4D536C4A3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {46363D22-04DC-4862-8477-427085B5AC14}
+	EndGlobalSection
+EndGlobal

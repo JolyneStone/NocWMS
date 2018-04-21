@@ -1,0 +1,11 @@
+.avatar-size {
+    width: 200px;
+}
+
+.avatar-size-50 {
+    width: 100px;
+}
+
+form input[type="file"] {
+    display: none;
+}

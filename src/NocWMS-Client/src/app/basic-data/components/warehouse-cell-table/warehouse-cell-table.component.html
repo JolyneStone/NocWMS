@@ -1,0 +1,80 @@
+<div class="user-table-container">
+    <ng-template #content>
+        <div class="modal-header">
+            <h4 class="modal-title">请确认</h4>
+            <button type="button" class="close" aria-label="Close" (click)="close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+        </div>
+        <div class="modal-body">
+            <p><i class="fa fa-warning fa-2x"></i> 确定要删除吗？</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-danger btn-danger" (click)="close('delete')">确定</button>
+            <button type="button" class="btn btn-outline-dark btn-info" (click)="close('cancel')">取消</button>
+        </div>
+    </ng-template>
+    <h3 class="header-no-margin">
+        仓库库位资料 &nbsp;&nbsp;
+        <noc-warehouse-nav [id]="id"></noc-warehouse-nav>
+    </h3>
+    <form class="form-inline top-filter-form" role="form">
+        <div class="form-group">
+            <div class="input-group">
+                <input type="text" class="form-control" #query />
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button" (click)="queryResult()">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </button>
+                </div>
+            </div>
+        </div>
+        &nbsp;
+        <div class="form-group">
+            <button class="btn btn-success" type="button" (click)="newWarehouseCell()">
+                <i class="fa fa-user" aria-hidden="true"></i>新增库位
+            </button>
+        </div>
+        <div class="form-group">
+            <label>&nbsp;显示条数：</label>
+            <select class="form-control" [(ngModel)]="pageSize" name="pageSize">
+                <option *ngFor="let item of pageSizes" [value]="item">{{item}}</option>
+            </select>
+        </div>
+    </form>
+    <div class="row">
+        <div class="col-xs-12 col-md-12">
+            <div class="user-item-container table-responsive">
+                <table class="table table-hover table-light text-nowrap">
+                    <thead>
+                        <th scope="col">库位名称</th>
+                        <th scope="col">容量</th>
+                        <th scope="col">剩余容量</th>
+                        <th scope="col">状态</th>
+                        <th scope="col">操作</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of warehouseCells">
+                            <td scope="row">{{item.cellName}}</td>
+                            <td>{{item.volume}}</td>
+                            <td>{{item.remainderVolume}}</td>
+                            <td>{{item.status | cellStatus}}</td>
+                            <td>
+                                <button class="btn btn-success" (click)="editWarehouseCell(item)">详情</button>
+                                <button class="btn btn-danger" (click)="open(item)">删除</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <ngb-pagination [collectionSize]="total" [page]="page" [pageSize]="pageSize" (pageChange)="pageChange($event)"></ngb-pagination>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 col-xs-8 offset-2 text-center">
+            <noc-warehouse-cell-map></noc-warehouse-cell-map>
+        </div>
+    </div>
+</div>

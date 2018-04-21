@@ -1,0 +1,89 @@
+<div class="user-table-container">
+    <ng-template #content>
+        <div class="modal-header">
+            <h4 class="modal-title">请确认</h4>
+            <button type="button" class="close" aria-label="Close" (click)="close()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+        </div>
+        <div class="modal-body">
+            <p><i class="fa fa-warning fa-2x"></i> 确定要删除吗？</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-danger btn-danger" (click)="close('delete')">确定</button>
+            <button type="button" class="btn btn-outline-dark btn-info" (click)="close('cancel')">取消</button>
+        </div>
+    </ng-template>
+    <h3 class="header-no-margin">库存管理</h3>
+    <form class="form-inline top-filter-form" role="form">
+        <div class="form-group">
+            <label>&nbsp;选择仓库：</label>
+            <select class="form-control" [(ngModel)]="selectedWarehouse" name="warehouse" (ngModelChange)="setWarehouse($event)">
+                <option value="-1">全部仓库</option>
+                <option *ngFor="let item of warehouses" [value]="item.id">{{item.warehouseName}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>&nbsp;商品类别：</label>
+            <select class="form-control" [(ngModel)]="selectedCategory" name="category" (ngModelChange)="setCategory($event)">
+                <option value="-1">全部类别</option>
+                <option *ngFor="let item of categories" [value]="item.id">{{item.categoryName}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>&nbsp;显示条数：</label>
+            <select class="form-control" [(ngModel)]="pageSize" name="pageSize">
+                <option *ngFor="let item of pageSizes" [value]="item">{{item}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <div class="input-group">
+                <input type="text" class="form-control" #query>
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button" (click)="queryResult()">
+                        <i class="fa fa-search" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="row">
+        <div class="col-xs-12 col-md-12">
+            <div class="user-item-container text-center table-responsive">
+                <table class="table table-hover table-light text-nowrap">
+                    <thead>
+                        <th scope="col">名称</th>
+                        <th scope="col">单位</th>
+                        <th scope="col">账面库存</th>
+                        <th scope="col">实际库存</th>
+                        <th scope="col">差异</th>
+                        <th scope="col">成本价</th>
+                        <th scope="col">库存金额</th>
+                        <th scope="col">仓库</th>
+                        <th scope="col">操作</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of inventories">
+                            <td scope="row">{{item.productName}}</td>
+                            <td>{{item.productUnit}}</td>
+                            <td>{{item.bookInventory}}</td>
+                            <td>{{item.realInventory}}</td>
+                            <td>{{item.diffInventory}}</td>
+                            <td>{{item.productPrice | number:'1.2'}}</td>
+                            <td>{{item.totalPrice | number:'1.2'}}</td>
+                            <td>{{item.warehouseName}}</td>
+                            <td>
+                                <button class="btn btn-success" (click)="editItem(item)">编辑</button>
+                                <button class="btn btn-info" (click)="entryItem(item)">详情</button>
+                                <button class="btn btn-danger" (click)="open(content, item)">删除</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <ngb-pagination [collectionSize]="total" [page]="page" [pageSize]="pageSize" (pageChange)="pageChange($event)"></ngb-pagination>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

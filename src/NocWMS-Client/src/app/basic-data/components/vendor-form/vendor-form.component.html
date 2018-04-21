@@ -1,0 +1,155 @@
+<h3 class="header-no-margin">供应商资料</h3>
+<div class="col-md-8 offset-2 text-center">
+    <form class="form-horizontal" #vendorForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group row">
+            <label class="col-md-3 offset-1 control-label">名称：</label>
+            <div class="col-md-4">
+                <input type="text" class="form-control" placeholder="2-50个字符, 必填" #vendorName="ngModel" [(ngModel)]="vendor.vendorName" name="vendorName" required minlength="2" maxlength="50" />
+                <div *ngIf="vendorName.invalid && (vendorName.dirty || vendorName.touched)" class="text-danger">
+                    <div *ngIf="vendorName.errors['required']">
+                        名称不可为空
+                    </div>
+                    <div *ngIf="vendorName.errors['minlength']">
+                        名称长度不能小于2个字符
+                    </div>
+                    <div *ngIf="vendorName.errors['maxlength']">
+                        名称长度不能大于50个字符
+                    </div>
+                </div> 
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 offset-1 control-label">地址：</label>
+            <div class="col-md-4">
+                <input type="text" class="form-control" placeholder="2-100个字符, 必填" #address="ngModel" [(ngModel)]="vendor.address" name="address" required minlength="2" maxlength="100" />
+                <div *ngIf="address.invalid && (address.dirty || address.touched)" class="text-danger">
+                    <div *ngIf="address.errors['required']">
+                        地址不可为空
+                    </div>
+                    <div *ngIf="address.errors['minlength']">
+                        地址长度不可小于2个字符
+                    </div>
+                    <div *ngIf="address.errors['maxlength']">
+                        地址长度不可大于100个字符
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 offset-1 control-label">邮编：</label>
+            <div class="col-md-4">
+                <input type="text" class="form-control" placeholder="合法的邮政编码" #postCode="ngModel" [(ngModel)]="vendor.postCode" name="postCode" pattern="[1-9]\d{5}(?!\d)" />
+                <div *ngIf="postCode.invalid && (postCode.dirty || postCode.touched)" class="text-danger">
+                    <div *ngIf="postCode.errors['pattern']">
+                        邮编不合法
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 offset-1 control-label">手机号码：</label>
+            <div class="col-md-4">
+                <input type="text" class="form-control" placeholder="合法的手机号码, 必填" #telephone="ngModel" [(ngModel)]="vendor.telephone" name="telephone" pattern="^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$" />
+                <div *ngIf="telephone.invalid && (telephone.dirty || telephone.touched)" class="text-danger">
+                    <div *ngIf="telephone.errors['required']">
+                        手机号码不可为空
+                    </div>
+                    <div *ngIf="telephone.errors['pattern']">
+                        手机号码格式不合法
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 offset-1 control-label">传真：</label>
+            <div class="col-md-4">
+                <input type="text" class="form-control" placeholder="传真" #fax="ngModel" [(ngModel)]="vendor.fax" name="fax" pattern="^[+]{0,1}(\d){1,3}[ ]?([-]?((\d)|[ ]){1,12})+$" />
+                <div *ngIf="fax.invalid && (fax.dirty || fax.touched)" class="text-danger">
+                    <div *ngIf="fax.errors['pattern']">
+                        传真格式不合法
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 offset-1 control-label">电子邮件：</label>
+            <div class="col-md-4">
+                <input type="text" class="form-control" placeholder="电子邮件" #email="ngModel" [(ngModel)]="vendor.email" name="email" minlength="2" maxlength="50" pattern="^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$" />
+                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+                    <div *ngIf="email.errors['pattern']">
+                        电子邮件格式不合法
+                    </div>
+                    <div *ngIf="email.errors['minlength']">
+                        电子邮箱长度不可小于2个字符
+                    </div>
+                    <div *ngIf="email.errors['maxlength']">
+                        电子邮箱长度不可大于50个字符
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 offset-1 control-label">联系人：</label>
+            <div class="col-md-4">
+                <input type="text" class="form-control" placeholder="联系人姓名 2-32个字符, 必填" #contact="ngModel" [(ngModel)]="vendor.contact" name="contact" required minlength="2" maxlength="32" />
+                <div *ngIf="contact.invalid && (contact.dirty || contact.touched)" class="text-danger">
+                    <div *ngIf="contact.errors['required']">
+                        联系人名称不可为空
+                    </div>
+                    <div *ngIf="contact.errors['minlength']">
+                        联系人名称长度不能小于2个字符
+                    </div>
+                    <div *ngIf="contact.errors['maxlength']">
+                        联系人名称长度不能大于32个字符
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 offset-1 control-label">联系人性别：</label>
+            <div class="col-md-4">
+                <label for="male">男</label>
+                <input type="radio" id="male" name="gender" [(ngModel)]="gender" value="male">
+                <label for="female">女</label>
+                <input type="radio" id="female" name="gender" [(ngModel)]="gender" value="female">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 offset-1 control-label">职务：</label>
+            <div class="col-md-4">
+                <input type="text" class="form-control" placeholder="职务描述 2-32个字符, 必填" #duty="ngModel" [(ngModel)]="vendor.duty" name="duty" required minlength="2" maxlength="32" />
+                <div *ngIf="duty.invalid && (duty.dirty || duty.touched)" class="text-danger">
+                    <div *ngIf="duty.errors['required']">
+                        职务不可为空
+                    </div>
+                    <div *ngIf="duty.errors['minlength']">
+                        职务描述长度不可小于2个字符
+                    </div>
+                    <div *ngIf="duty.errors['maxlength']">
+                        职务描述长度不可大于32个字符
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 offset-1 control-label">备注：</label>
+            <div class="col-md-4">
+                <textarea class="form-control" rows="3" placeholder="2-255个字符" #remarks="ngModel" [(ngModel)]="vendor.remarks" name="remarks" required minlength="2" maxlength="255"></textarea>
+                <div *ngIf="remarks.invalid && (remarks.dirty || remarks.touched)" class="text-danger">
+                    <div *ngIf="remarks.errors['minlength']">
+                        备注长度不能小于2个字符
+                    </div>
+                    <div *ngIf="remarks.errors['maxlength']">
+                        备注长度不能大于255个字符
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="offset-4 col-md-4">
+                <button type="submit" class="btn btn-success">保存</button>
+                <button type="button" class="btn btn-danger" (click)="backToTable()">返回</button>
+            </div>
+        </div>
+    </form>
+</div>

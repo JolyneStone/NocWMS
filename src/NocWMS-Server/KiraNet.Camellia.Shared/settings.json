@@ -1,0 +1,24 @@
+﻿{
+  "ServiceSettings": {
+    "ServiceName": "KiraNet.Camellia",
+    "ServiceDisplay": "KiraNet.Camellia Service"
+  },
+  "Services": {
+    "Authorization": {
+      "AuthId": "auth_id",
+      "AuthName": "auth_name",
+      "AuthBase": "http://localhost:5000"
+    },
+    "Api": {
+      "ClientId": "api_id",
+      "ClientName": "api_name",
+      "ClientBase": "http://localhost:5100"
+    },
+    "Client": {
+      "ClientId": "client_id",
+      "ClientName": "client_name",
+      "ClientBase": "http://localhost:5200"
+    }
+  },
+  "Assets": "C:\\Users\\99752\\Desktop\\NocWMS\\NocWMS-Client\\src\\assets"
+}

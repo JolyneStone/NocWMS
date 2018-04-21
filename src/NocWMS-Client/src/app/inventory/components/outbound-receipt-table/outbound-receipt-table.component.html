@@ -1,0 +1,80 @@
+<div class="user-table-container">
+    <h3 class="header-no-margin">出库管理</h3>
+    <form class="form-inline top-filter-form" role="form">
+        <div class="form-group">
+            <label>&nbsp;选择仓库：</label>
+            <select class="form-control" [(ngModel)]="selectedWarehouseId" name="warehouse">
+              <option value="-1">全部仓库</option>
+              <option *ngFor="let item of warehouses" [value]="item.id">{{item.warehouseName}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>&nbsp;起始日期：</label>
+            <div class="input-group">
+                <input class="form-control" placeholder="yyyy-mm-dd" name="startDate" [(ngModel)]="startDate" ngbDatepicker #start="ngbDatepicker">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" (click)="start.toggle()" type="button">
+                        <i class="fa fa-calendar"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>&nbsp;结束日期：</label>
+            <div class="input-group">
+                <input class="form-control" placeholder="yyyy-mm-dd" name="endDate" [(ngModel)]="endDate" ngbDatepicker #end="ngbDatepicker">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" (click)="end.toggle()" type="button">
+                        <i class="fa fa-calendar"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            &nbsp;
+            <button class="btn btn-success" type="button" (click)="search()">
+                <i class="fa fa-search" aria-hidden="true"></i>查询
+            </button> &nbsp;
+            <button class="btn btn-success" type="button" (click)="newReceipt()">
+                <i class="fa fa-user" aria-hidden="true"></i>新增出库
+            </button>
+        </div>
+        <div class="form-group">
+            <label>&nbsp;显示条数：</label>
+            <select class="form-control" [(ngModel)]="pageSize" name="pageSize">
+                <option *ngFor="let item of pageSizes" [value]="item">{{item}}</option>
+            </select>
+        </div>
+    </form>
+    <div class="row">
+        <div class="col-xs-12 col-md-12">
+            <div class="user-item-container text-center">
+                <table class="table table-hover table-light text-nowrap">
+                    <thead>
+                        <th scope="col">出库单号</th>
+                        <th scope="col">仓库</th>
+                        <th scope="col">供应商</th>
+                        <th scope="col">运货单号</th>
+                        <th scope="col">出库日期</th>
+                        <th scope="col">操作</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of items">
+                            <td scope="row">{{item.id}}</td>
+                            <td>{{item.warehouseName}}</td>
+                            <td>{{item.customerName}}</td>
+                            <td>{{item.waybillNo}}</td>
+                            <td>{{item.createTime}}</td>
+                            <td>
+                                <button class="btn btn-success" (click)="receiptDetail(item)">编辑</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <ngb-pagination [collectionSize]="total" [page]="page" [pageSize]="pageSize" (pageChange)="pageChange($event)"></ngb-pagination>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,96 @@
+<h3 class="header-no-margin">产品资料</h3>
+<div class="col-xs-8 col-md-8 offset-2 text-center">
+    <form class="form-horizontal" #productForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group row">
+            <label class="col-md-3 offset-1 control-label">产品名称：</label>
+            <div class="col-md-4">
+                <input type="text" class="form-control" placeholder="2-50个字符, 必填" #productName="ngModel" [(ngModel)]="product.productName" name="productName" required minlength="2" maxlength="50" [ngClass]="{'form-control-plaintext': canEdit}" />
+                <div *ngIf="productName.invalid && (productName.dirty || productName.touched)" class="text-danger">
+                    <div *ngIf="productName.errors['required']">
+                        产品名称不可为空
+                    </div>
+                    <div *ngIf="productName.errors['minlength']">
+                        产品名称长度不能小于2个字符
+                    </div>
+                    <div *ngIf="productName.errors['maxlength']">
+                        产品名称长度不能大于50个字符
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 offset-1 control-label">单位：</label>
+            <div class="col-md-4">
+                <input type="text" class="form-control" placeholder="1-10个字符, 必填" #unit="ngModel" [(ngModel)]="product.unit" name="unit" required minlength="1" maxlength="10" [ngClass]="{'form-control-plaintext': canEdit}" />
+                <div *ngIf="unit.invalid && (unit.dirty || unit.touched)" class="text-danger">
+                    <div *ngIf="unit.errors['required']">
+                        单位不可为空
+                    </div>
+                    <div *ngIf="unit.errors['minlength']">
+                        单位长度不能小于1个字符
+                    </div>
+                    <div *ngIf="unit.errors['maxlength']">
+                        单位长度不能大于10个字符
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 offset-1 control-label">规格：</label>
+            <div class="col-md-4">
+                <input type="text" class="form-control" placeholder="2-10个字符, 必填" #spec="ngModel" [(ngModel)]="product.spec" name="spec" required minlength="2" maxlength="10" [ngClass]="{'form-control-plaintext': canEdit}" />
+                <div *ngIf="spec.invalid && (spec.dirty || spec.touched)" class="text-danger">
+                    <div *ngIf="spec.errors['required']">
+                        规格不可为空
+                    </div>
+                    <div *ngIf="spec.errors['minlength']">
+                        规格不能小于2个字符
+                    </div>
+                    <div *ngIf="spec.errors['maxlength']">
+                        规格不能大于10个字符
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 offset-1 control-label">型号：</label>
+            <div class="col-md-4">
+                <input type="text" class="form-control" placeholder="1-10个字符, 必填" #model="ngModel" [(ngModel)]="product.model" name="model" required minlength="1" maxlength="10" [ngClass]="{'form-control-plaintext': canEdit}" />
+                <div *ngIf="model.invalid && (model.dirty || model.touched)" class="text-danger">
+                    <div *ngIf="model.errors['required']">
+                        型号不可为空
+                    </div>
+                    <div *ngIf="model.errors['minlength']">
+                        型号不能小于1个字符
+                    </div>
+                    <div *ngIf="model.errors['maxlength']">
+                        型号不能大于10个字符
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 offset-1 control-label">金额：</label>
+            <div class="col-md-4">
+                <input type="text" class="form-control"placeholder="必填" #sellPrice="ngModel" [(ngModel)]="product.sellPrice" name="sellPrice" required minlength="1" maxlength="20" [ngClass]="{'form-control-plaintext': canEdit}" />
+                <div *ngIf="sellPrice.invalid && (sellPrice.dirty || sellPrice.touched)" class="text-danger">
+                    <div *ngIf="model.errors['required']">
+                        金额不可为空
+                    </div>
+                    <div *ngIf="model.errors['minlength']">
+                        金额不能小于1个字符
+                    </div>
+                    <div *ngIf="model.errors['maxlength']">
+                        金额不能大于20个字符
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="offset-4 col-xs-4 col-md-4">
+                <button type="submit" class="btn btn-success" [disabled]="!canEdit && productForm.invalid">保存</button>
+                <button type="button" class="btn btn-danger" (click)="backToTable()">返回</button>
+            </div>
+        </div>
+    </form>
+</div>

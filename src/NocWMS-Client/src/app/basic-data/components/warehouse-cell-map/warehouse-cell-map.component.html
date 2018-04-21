@@ -1,0 +1,13 @@
+<div *ngIf="isShow" class="user-table-container">
+    <div class="storage-location-container">
+        <div class="storage-partition">
+            <div class="storage-row-container">
+                <div class="storage-row">
+                    <div *ngFor="let item of cells" class="storage-col" [ngClass]="item.status | cellStatus">
+                        {{item.cellName}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

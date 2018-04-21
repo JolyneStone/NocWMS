@@ -1,0 +1,112 @@
+﻿@*@using System.Collections.Generic
+    @using System.Linq
+    @using KiraNet.Camellia.AuthorizationServer.Models
+    @using KiraNet.Camellia.AuthorizationServer.Models.ViewModels
+    @using Microsoft.AspNetCore.Http
+    @using Microsoft.AspNetCore.Http.Authentication
+    @model KiraNet.Camellia.AuthorizationServer.Models.ViewModels.LoginViewModel
+    @inject Microsoft.AspNetCore.Identity.SignInManager<User> SignInManager
+
+    @{
+        Layout = "_Login";
+        ViewData["Title"] = "Sign in";
+    }
+
+    <div id="box"></div>
+    <div class="cent-box">
+        <div class="cent-box-header">
+            <h1 class="sub-title">Authorization Server</h1>
+        </div>
+
+        <div class="cont-main clearfix">
+            <div class="index-tab">
+                <div class="index-slide-nav">
+                    <a class="btn btn-default btn-lg active" asp-action="login">Sign in</a>
+                    <a class="btn btn-default btn-lg" asp-action="register" asp-route-returnurl="@ViewData["ReturnUrl"]">Sign up</a>
+                </div>
+            </div>
+
+            <form asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
+                <div class="login form">
+                    <div class="group">
+                        <div class="group-ipt">
+                            <input asp-for="UserName" class="ipt" placeholder="User name">
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>
+                        <hr />
+                        <div class="group-ipt">
+                            <input asp-for="Password" class="ipt" placeholder="Password" />
+                            <span asp-validation-for="Password" class="text-danger" placeholder="Password"></span>
+                        </div>
+                    </div>
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                </div>
+                <div class="button">
+                    <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                </div>
+
+                <div class="remember clearfix">
+                    <label asp-for="RememberMe" class="remember-me">
+                        <input asp-for="RememberMe" />
+                        @Html.DisplayNameFor(m => m.RememberMe)
+                    </label>
+                    <label class="forgot-password">
+                        <a asp-action="ForgotPassword">Forget password?</a>
+                    </label>
+                </div>
+            </form>
+        </div>
+    </div>
+    @section Scripts {
+        @await Html.PartialAsync("_ValidationScriptsPartial")
+    }*@
+
+
+@using System.Collections.Generic
+@using System.Linq
+@using KiraNet.Camellia.AuthorizationServer.Models
+@using KiraNet.Camellia.AuthorizationServer.Models.ViewModels
+@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Http.Authentication
+@model KiraNet.Camellia.AuthorizationServer.Models.ViewModels.LoginViewModel
+@inject Microsoft.AspNetCore.Identity.SignInManager<User> SignInManager
+
+@{
+    Layout = "_Login";
+    ViewData["Title"] = "Sign in";
+}
+
+<p class="text-center font16">User Sign in</p>
+<section>
+    <form asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group mg-t20">
+            <i class="icon-user icon_font"></i>
+            <input asp-for="UserName" class="login_input" placeholder="User name" />
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+        <div class="form-group mg-t20">
+            <i class="icon-lock icon_font"></i>
+            <input asp-for="Password" class="login_input" placeholder="Password" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+            <div class="checkbox mg-b25">
+                <label asp-for="RememberMe">
+                    <input asp-for="RememberMe" />
+                    @Html.DisplayNameFor(m => m.RememberMe)
+                </label>
+            </div>
+        <div class="form-group">
+            <button type="submit" class="login_btn">Sign in</button>
+        </div>
+        <div class="form-group">
+            <p>
+                <a asp-action="ForgotPassword">Forget password</a> |   <a asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]">Sign up</a>
+            </p>
+        </div>
+    </form>
+</section>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

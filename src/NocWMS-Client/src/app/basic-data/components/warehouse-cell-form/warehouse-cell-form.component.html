@@ -1,0 +1,61 @@
+<h3 class="header-no-margin">库位资料</h3>
+<div class="col-xs-8 col-md-8 offset-2 text-center">
+    <form class="form-horizontal" #warehouseForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group row">
+            <label class="col-md-3 offset-1 control-label">库位名称：</label>
+            <div class="col-md-4">
+                <input type="text" class="form-control" placeholder="2-30个字符, 必填" #cellName="ngModel" [(ngModel)]="warehouseCell.cellName" name="cellName" required minlength="2" maxlength="30" />
+                <div *ngIf="cellName.invalid && (cellName.dirty || cellName.touched)" class="text-danger">
+                    <div *ngIf="cellName.errors['required']">
+                        库位名称不可为空
+                    </div>
+                    <div *ngIf="cellName.errors['minlength']">
+                        库位名称长度不能小于2个字符
+                    </div>
+                    <div *ngIf="cellName.errors['maxlength']">
+                        库位名称长度不能大于50个字符
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 offset-1 control-label">容量：</label>
+            <div class="col-md-4">
+                <input type="text" class="form-control" #volume="ngModel" [(ngModel)]="warehouseCell.volume" name="volume" required />
+                <div *ngIf="volume.invalid && (volume.dirty || volume.touched)" class="text-danger">
+                    <div *ngIf="volume.errors['required']">
+                        容量不可为空
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 offset-1 control-label">剩余容量：</label>
+            <div class="col-md-4">
+                <input type="text" class="form-control" #remainderVolume="ngModel" [(ngModel)]="warehouseCell.remainderVolume" name="remainderVolume" required />
+                <div *ngIf="remainderVolume.invalid && (remainderVolume.dirty || remainderVolume.touched)" class="text-danger">
+                    <div *ngIf="remainderVolume.errors['required']">
+                        剩余容量不可为空
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-3 offset-1 control-label">状态：</label>
+            <div class="col-md-4">
+                <label for="available">可用</label>
+                <input type="radio" id="available" name="status" [(ngModel)]="cellStatus" value="available">
+                <label for="full">已满</label>
+                <input type="radio" id="full" name="status" [(ngModel)]="cellStatus" value="full">
+                <label for="fault">故障</label>
+                <input type="radio" id="fault" name="status" [(ngModel)]="cellStatus" value="fault">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="offset-4 col-xs-4 col-md-4">
+                <button type="submit" class="btn btn-success">保存</button>
+                <button type="button" class="btn btn-danger" (click)="backToTable()">返回</button>
+            </div>
+        </div>
+    </form>
+</div>

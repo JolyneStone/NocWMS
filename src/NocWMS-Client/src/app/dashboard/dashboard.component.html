@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-md-12">
+        <h3 class="dashboard-title">仪表盘 <button class="btn btn-outline-danger btn-debug" (click)="loading=!loading">loading</button></h3>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="top-rect top-rect-blue">
+                    <p>65535 PV/Day</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="top-rect top-rect-green">
+                    <p>123,456K</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="top-rect top-rect-orange">
+                    <p>$123,456</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="top-rect top-rect-pink">
+                    <p>123,456</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="chart-container line-container">
+                    <!-- <div echarts [options]="lineOptions" [merge]="updateLineOptions" [loading]="loading" (chartInit)="lineInit($event)" (chartClick)="lineClick($event)" class="nf-chart"></div> -->
+                    <div echarts [options]="lineOptions" [merge]="updateLineOptions" [loading]="loading" (chartInit)="lineInit($event)" (chartClick)="lineClick($event)" class="nf-chart"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="chart-container bar-container">
+                    <div echarts [options]="barOptions" [merge]="updateBarOptions" [loading]="loading" (chartInit)="barInit($event)" (chartClick)="barClick($event)" class="nf-chart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,96 @@
+﻿@*@using KiraNet.Camellia.AuthorizationServer.Models
+    @model KiraNet.Camellia.AuthorizationServer.Models.ViewModels.RegisterViewModel
+    @{
+        Layout = "_Login";
+        ViewData["Title"] = "Sign up";
+    }
+
+    <div id="box"></div>
+    <div class="cent-box">
+        <div class="cent-box-header">
+            <h1 class="sub-title">Authorization Server</h1>
+        </div>
+
+        <div class="cont-main clearfix">
+            <div class="index-tab">
+                <div class="index-slide-nav">
+                    <a class="btn btn-default btn-lg active" asp-action="login">Sign in</a>
+                    <a class="btn btn-default btn-lg" asp-action="register" asp-route-returnurl="@ViewData["ReturnUrl"]">Sign up</a>
+                </div>
+            </div>
+
+            <form asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post">
+                <div class="login form">
+                    <div class="group">
+                        <div class="group-ipt">
+                            <input asp-for="UserName" class="ipt" placeholder="User name">
+                            <span asp-validation-for="UserName" class="text-danger"></span>
+                        </div>
+                        <hr />
+                        <div class="group-ipt">
+                            <input asp-for="Email" class="ipt" placeholder="Email" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <hr />
+                        <div class="group-ipt">
+                            <input asp-for="Password" class="ipt" placeholder="Password" />
+                            <span asp-validation-for="Password" class="text-danger" placeholder="Password"></span>
+                        </div>
+                        <hr />
+                        <div class="group-ipt">
+                            <input asp-for="ConfirmPassword" class="ipt" placeholder="Confirm password" />
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div asp-validation-summary="All" class="text-danger"></div>
+                </div>
+                <div class="button">
+                    <button type="submit" class="btn btn-primary btn-block">Sign up</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    @section Scripts {
+        @await Html.PartialAsync("_ValidationScriptsPartial")
+    }*@
+
+@using KiraNet.Camellia.AuthorizationServer.Models
+@model KiraNet.Camellia.AuthorizationServer.Models.ViewModels.RegisterViewModel
+@{
+    Layout = "_Login";
+    ViewData["Title"] = "Sign up";
+}
+
+
+<p class="text-center font16">User Sign up</p>
+<section>
+    <form asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group mg-t20">
+            <i class="icon-user icon_font"></i>
+            <input asp-for="UserName" class="login_input" placeholder="User name" />
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+        <div class="form-group mg-t20">
+            <i class="icon-flow icon_font"></i>
+            <input asp-for="Email" class="login_input" placeholder="Email" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-group mg-t20">
+            <i class="icon-lock icon_font"></i>
+            <input asp-for="Password" class="login_input" placeholder="Password" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="form-group mg-t20">
+            <i class="icon-lock icon_font"></i>
+            <input asp-for="ConfirmPassword" class="login_input" placeholder="Confirm password" />
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+        <button type="submit" class="login_btn">Sign up</button>
+    </form>
+</section>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

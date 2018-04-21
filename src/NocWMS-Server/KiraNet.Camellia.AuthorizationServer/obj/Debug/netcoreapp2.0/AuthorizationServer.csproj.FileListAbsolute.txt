@@ -1,0 +1,8 @@
+C:\Users\99752\Desktop\KiraNet.Camellia\Server\AuthorizationServer\bin\Debug\netcoreapp2.0\AuthorizationServer.deps.json
+C:\Users\99752\Desktop\KiraNet.Camellia\Server\AuthorizationServer\bin\Debug\netcoreapp2.0\AuthorizationServer.runtimeconfig.json
+C:\Users\99752\Desktop\KiraNet.Camellia\Server\AuthorizationServer\bin\Debug\netcoreapp2.0\AuthorizationServer.runtimeconfig.dev.json
+C:\Users\99752\Desktop\KiraNet.Camellia\Server\AuthorizationServer\bin\Debug\netcoreapp2.0\AuthorizationServer.dll
+C:\Users\99752\Desktop\KiraNet.Camellia\Server\AuthorizationServer\obj\Debug\netcoreapp2.0\AuthorizationServer.csprojResolveAssemblyReference.cache
+C:\Users\99752\Desktop\KiraNet.Camellia\Server\AuthorizationServer\obj\Debug\netcoreapp2.0\AuthorizationServer.csproj.CoreCompileInputs.cache
+C:\Users\99752\Desktop\KiraNet.Camellia\Server\AuthorizationServer\obj\Debug\netcoreapp2.0\AuthorizationServer.AssemblyInfoInputs.cache
+C:\Users\99752\Desktop\KiraNet.Camellia\Server\AuthorizationServer\obj\Debug\netcoreapp2.0\AuthorizationServer.AssemblyInfo.cs

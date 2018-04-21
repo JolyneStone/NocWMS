@@ -1,0 +1,48 @@
+<h3 class="header-no-margin">品类资料</h3>
+<div class="col-xs-8 col-md-8 offset-2 text-center">
+    <form class="form-horizontal" #categoryForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group row">
+            <label class="col-xs-3 col-md-3 offset-1 control-label">创建人：</label>
+            <div class="col-xs-4 col-md-4">
+                <span class="form-control-static">{{category.creator}}</span>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-xs-3 col-md-3 offset-1 control-label">类别名称：</label>
+            <div class="col-xs-4 col-md-4">
+                <input type="text" class="form-control" placeholder="2-50个字符, 必填" #categoryName="ngModel" [(ngModel)]="category.categoryName" name="categoryName" [ngClass]="{'form-control-plaintext': canEdit}" required minlength="2" maxlength="50" />
+                <div *ngIf="categoryName.invalid && (categoryName.dirty || categoryName.touched)" class="text-danger">
+                    <div *ngIf="categoryName.errors['required']">
+                        类别名称不可为空
+                    </div>
+                    <div *ngIf="categoryName.errors['minlength']">
+                        类别名称长度不能小于2个字符
+                    </div>
+                    <div *ngIf="categoryName.errors['maxlength']">
+                        类别名称长度不能大于50个字符
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-xs-3 col-md-3 offset-1 control-label">备注：</label>
+            <div class="col-xs-4 col-md-4">
+                   <textarea class="form-control" rows="3" placeholder="2-255个字符" #remarks="ngModel" [(ngModel)]="category.remarks" name="remarks" [ngClass]="{'form-control-plaintext': canEdit}" required minlength="2" maxlength="255"></textarea>
+                <div *ngIf="remarks.invalid && (remarks.dirty || remarks.touched)" class="text-danger">
+                    <div *ngIf="remarks.errors['minlength']">
+                        备注长度不能小于2个字符
+                    </div>
+                    <div *ngIf="remarks.errors['maxlength']">
+                        备注长度不能大于255个字符
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="offset-4 col-xs-4 col-md-4">
+                <button type="submit" class="btn btn-success" [disabled]="!canEdit && categoryForm.invalid">保存</button>
+                <button type="button" class="btn btn-danger" (click)="backToTable()">返回</button>
+            </div>
+        </div>
+    </form>
+</div>

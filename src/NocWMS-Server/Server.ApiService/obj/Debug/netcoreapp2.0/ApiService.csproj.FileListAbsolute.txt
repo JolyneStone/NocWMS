@@ -1,0 +1,8 @@
+C:\Users\99752\Desktop\KiraNet.Camellia\Server\ApiService\bin\Debug\netcoreapp2.0\ApiService.deps.json
+C:\Users\99752\Desktop\KiraNet.Camellia\Server\ApiService\bin\Debug\netcoreapp2.0\ApiService.runtimeconfig.json
+C:\Users\99752\Desktop\KiraNet.Camellia\Server\ApiService\bin\Debug\netcoreapp2.0\ApiService.runtimeconfig.dev.json
+C:\Users\99752\Desktop\KiraNet.Camellia\Server\ApiService\bin\Debug\netcoreapp2.0\ApiService.dll
+C:\Users\99752\Desktop\KiraNet.Camellia\Server\ApiService\obj\Debug\netcoreapp2.0\ApiService.csprojResolveAssemblyReference.cache
+C:\Users\99752\Desktop\KiraNet.Camellia\Server\ApiService\obj\Debug\netcoreapp2.0\ApiService.csproj.CoreCompileInputs.cache
+C:\Users\99752\Desktop\KiraNet.Camellia\Server\ApiService\obj\Debug\netcoreapp2.0\ApiService.AssemblyInfoInputs.cache
+C:\Users\99752\Desktop\KiraNet.Camellia\Server\ApiService\obj\Debug\netcoreapp2.0\ApiService.AssemblyInfo.cs

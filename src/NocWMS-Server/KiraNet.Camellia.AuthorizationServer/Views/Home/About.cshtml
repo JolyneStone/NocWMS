@@ -1,0 +1,21 @@
+﻿@using Microsoft.AspNetCore.Authentication;
+@{
+    ViewData["Title"] = "About the current user";
+}
+<h2>@ViewData["Title"]</h2>
+
+<h3>Current User Information</h3>
+
+<dl>
+    <dt>id token</dt>
+    <dd>@await ViewContext.HttpContext.GetTokenAsync("id_token")</dd>
+    <dt>access token</dt>
+    <dd>@await ViewContext.HttpContext.GetTokenAsync("access_token")</dd>
+
+    @foreach (var claim in User.Claims)
+    {
+        <dt>@claim.Type</dt>
+        <dd>@claim.Value</dd>
+
+    }
+</dl>
